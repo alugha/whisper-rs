@@ -15,6 +15,11 @@ repository = "https://github.com/tazz4843/whisper-rs"
 [dependencies]
 whisper-rs-sys = { path = "sys", version = "0.2" }
 
+[dev-dependencies]
+ac-ffmpeg = { git = "https://github.com/angelcam/rust-ac-ffmpeg.git", rev = "3b963de6bcaf3b572612f1783ecb343b6884b3c0" }
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
+
 [features]
 simd = []
 
