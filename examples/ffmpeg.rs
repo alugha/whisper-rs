@@ -1,4 +1,4 @@
-use std::{fs::File, ops::Deref};
+use std::fs::File;
 
 use ac_ffmpeg::{
     codec::{
@@ -30,13 +30,6 @@ fn open_input(path: &str) -> Result<DemuxerWithStreamInfo<File>, ac_ffmpeg::Erro
         .find_stream_info(None)
         .map_err(|(_, err)| err)
 }
-
-/// convert an audio frame to raw f32 16 KHz mono audio data
-/*fn prepare_audio_frame(frame: &AudioFrame) -> Vec<f32> {
-    for plane in frame.planes().deref() {
-        plane.data()
-    }
-}*/
 
 fn get_mono_audio_data<'a>(planes: &'a Planes) -> &'a [f32] {
     // Ensure this is mono audio
